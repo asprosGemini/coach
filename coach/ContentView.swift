@@ -4,51 +4,56 @@
 //
 //  This is the main screen of the app.
 //
-//  For now, it shows the app title plus the first sample question
-//  from the local question bank. This confirms that our UI is now
-//  reading real app data instead of only hard-coded placeholder text.
+//  For now, it shows the app title and a short preview list of sample
+//  interview questions from the local question bank. This confirms that
+//  the UI can render multiple pieces of real data.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     
-    // Temporary sample question used to prove the UI can read app data.
-    // Later, this screen will evolve into a real home screen with modes.
-    let featuredQuestion = QuestionBank.sampleQuestions[0]
+    // Temporary sample data used to populate the first screen.
+    // Later this home screen will evolve into Study Mode / Practice Mode.
+    let questions = QuestionBank.sampleQuestions
     
     var body: some View {
-        VStack(spacing: 20) {
-            
-            Text("Coach")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            Text("Practice technical and behavioral interview questions.")
-                .font(.body)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-            
-            // Small section showing the first sample question from the question bank.
-            VStack(spacing: 10) {
-                Text("Featured Question")
-                    .font(.headline)
+        NavigationStack {
+            VStack(spacing: 20) {
                 
-                Text(featuredQuestion.category.displayName)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                Text("Coach")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                 
-                Text(featuredQuestion.question)
+                Text("Practice technical and behavioral interview questions.")
                     .font(.body)
                     .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                
+                // Preview list of sample questions.
+                // This is a temporary UI step to prove the app can display
+                // multiple InterviewQuestion items from the question bank.
+                List(questions.prefix(3)) { question in
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(question.category.displayName)
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                        Text(question.question)
+                            .font(.body)
+                    }
+                    .padding(.vertical, 4)
+                }
+                .listStyle(.plain)
+                
+                Text("Study Mode and Practice Mode coming soon.")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
             }
-            .padding()
-            
-            Text("Interview training coming soon.")
-                .font(.subheadline)
-                .foregroundColor(.gray)
+            .padding(.top)
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
     }
 }
 
