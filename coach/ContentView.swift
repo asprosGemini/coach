@@ -38,25 +38,51 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                     
-                    // Preview list of sample questions
+                    // Preview list of sample questions.
+                    // Each row is now tappable and opens a temporary detail screen.
                     List(questions.prefix(3)) { question in
-                        VStack(alignment: .leading, spacing: 6) {
+                        NavigationLink {
                             
-                            Text(question.category.displayName)
-                                .font(.caption)
-                                .foregroundColor(.gray)
+                            // Temporary placeholder detail screen.
+                            // Later this will become a separate screen file.
+                            VStack(spacing: 20) {
+                                
+                                Text(question.category.displayName)
+                                    .font(.headline)
+                                
+                                Text(question.question)
+                                    .font(.title3)
+                                    .multilineTextAlignment(.center)
+                                
+                                Text(question.answer)
+                                    .font(.body)
+                                    .padding()
+                                
+                                Spacer()
+                            }
+                            .padding()
+                            .navigationTitle("Question")
+                            .navigationBarTitleDisplayMode(.inline)
                             
-                            Text(question.question)
-                                .font(.body)
-                            
-                            // Temporary answer preview so the list feels
-                            // more like a study interface.
-                            Text(question.answer)
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                                .lineLimit(2)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 6) {
+                                
+                                Text(question.category.displayName)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                
+                                Text(question.question)
+                                    .font(.body)
+                                
+                                // Temporary answer preview so the list feels
+                                // more like a study interface.
+                                Text(question.answer)
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            .padding(.vertical, 4)
                         }
-                        .padding(.vertical, 4)
                     }
                     .listStyle(.plain)
                 }
