@@ -21,9 +21,7 @@ struct ContentView: View {
         NavigationStack {
             VStack(spacing: 20) {
                 
-                Text("Coach")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                HomeTitleView()
                 
                 HomeIntroView()
                 
