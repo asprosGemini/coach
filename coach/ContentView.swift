@@ -48,6 +48,13 @@ struct ContentView: View {
                             
                             Text(question.question)
                                 .font(.body)
+                            
+                            // Temporary answer preview so the list feels
+                            // more like a study interface.
+                            Text(question.answer)
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                                .lineLimit(2)
                         }
                         .padding(.vertical, 4)
                     }
