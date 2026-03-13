@@ -32,22 +32,7 @@ struct ContentView: View {
                 
                 // Section showing a preview of questions from the question bank.
                 VStack(alignment: .leading, spacing: 8) {
-                    
-                    Text("Question Preview")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                    
-                    // Preview list of sample questions.
-                    // Each row is now tappable and opens a temporary detail screen.
-                    List(questions.prefix(3)) { question in
-                        NavigationLink {
-                            QuestionDetailView(question: question)
-                        } label: {
-                            QuestionRowView(question: question)
-                        }
-                    }
-                    .listStyle(.plain)
+                    QuestionPreviewSectionView(questions: questions)
                 }
                 
                 Text("Study Mode and Practice Mode coming soon.")
