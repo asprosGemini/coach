@@ -42,28 +42,7 @@ struct ContentView: View {
                     // Each row is now tappable and opens a temporary detail screen.
                     List(questions.prefix(3)) { question in
                         NavigationLink {
-                            
-                            // Temporary placeholder detail screen.
-                            // Later this will become a separate screen file.
-                            VStack(spacing: 20) {
-                                
-                                Text(question.category.displayName)
-                                    .font(.headline)
-                                
-                                Text(question.question)
-                                    .font(.title3)
-                                    .multilineTextAlignment(.center)
-                                
-                                Text(question.answer)
-                                    .font(.body)
-                                    .padding()
-                                
-                                Spacer()
-                            }
-                            .padding()
-                            .navigationTitle("Question")
-                            .navigationBarTitleDisplayMode(.inline)
-                            
+                            QuestionDetailView(question: question)
                         } label: {
                             VStack(alignment: .leading, spacing: 6) {
                                 
