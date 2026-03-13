@@ -22,6 +22,12 @@ struct QuestionPreviewSectionView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
             
+            // Small helper label showing how many questions are previewed.
+            Text("Showing \(min(3, questions.count)) of \(questions.count) questions")
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+            
             List(questions.prefix(3)) { question in
                 NavigationLink {
                     QuestionDetailView(question: question)
