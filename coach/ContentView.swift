@@ -30,21 +30,29 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                 
-                // Preview list of sample questions.
-                // This is a temporary UI step to prove the app can display
-                // multiple InterviewQuestion items from the question bank.
-                List(questions.prefix(3)) { question in
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(question.category.displayName)
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                        
-                        Text(question.question)
-                            .font(.body)
+                // Section showing a preview of questions from the question bank.
+                VStack(alignment: .leading, spacing: 8) {
+                    
+                    Text("Question Preview")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    
+                    // Preview list of sample questions
+                    List(questions.prefix(3)) { question in
+                        VStack(alignment: .leading, spacing: 6) {
+                            
+                            Text(question.category.displayName)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            
+                            Text(question.question)
+                                .font(.body)
+                        }
+                        .padding(.vertical, 4)
                     }
-                    .padding(.vertical, 4)
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
                 
                 Text("Study Mode and Practice Mode coming soon.")
                     .font(.subheadline)
