@@ -25,19 +25,9 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
-                Text("Practice technical and behavioral interview questions.")
-                    .font(.body)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
+                HomeIntroView()
                 
-                // Section showing a preview of questions from the question bank.
-                VStack(alignment: .leading, spacing: 8) {
-                    QuestionPreviewSectionView(questions: questions)
-                }
-                
-                Text("Study Mode and Practice Mode coming soon.")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                QuestionPreviewSectionView(questions: questions)
             }
             .padding(.top)
             .navigationTitle("Home")
