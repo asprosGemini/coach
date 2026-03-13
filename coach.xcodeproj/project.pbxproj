@@ -32,7 +32,7 @@
 		371C7F092F637B2E006B4788 = {
 			isa = PBXGroup;
 			children = (
-				371C7F142F637B2E006B4788 /* coach */,
+				37E669502F63A74600144F1B /* Models */,
 				371C7F132F637B2E006B4788 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +43,14 @@
 				371C7F122F637B2E006B4788 /* coach.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		37E669502F63A74600144F1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				371C7F142F637B2E006B4788 /* coach */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
