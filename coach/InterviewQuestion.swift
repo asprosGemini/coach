@@ -18,6 +18,22 @@ enum QuestionCategory {
     case logicReasoning
     case systemThinkingJudgment
     case technicalTroubleshooting
+    
+    // Human readable name for UI display
+    var displayName: String {
+        switch self {
+        case .behavioralSTAR:
+            return "Behavioral (STAR)"
+        case .introNarrative:
+            return "Intro / Narrative"
+        case .logicReasoning:
+            return "Logic & Reasoning"
+        case .systemThinkingJudgment:
+            return "System Thinking / Judgment"
+        case .technicalTroubleshooting:
+            return "Technical Troubleshooting"
+        }
+    }
 }
 
 // Represents one interview question in the app.
