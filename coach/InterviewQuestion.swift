@@ -37,7 +37,7 @@ enum QuestionCategory {
 }
 
 // Represents one interview question in the app.
-struct InterviewQuestion {
+struct InterviewQuestion: Identifiable {
     
     // Unique ID so each question can be identified separately
     let id: UUID
